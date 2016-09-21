@@ -1,4 +1,4 @@
-# Extending RED qdisc in ns3 to support Non-Linear RED (NLRED) algorithm.
+# Extending RED qdisc in ns-3 to support Non-Linear RED (NLRED) algorithm.
 Course Code: CS822  <br/>
                     <br/>
 Assignment: #GP1    <br/>
@@ -14,3 +14,5 @@ References:         <br/>
 [2] Floyd, S., & Jacobson, V. (1993). Random early detection gateways for congestion avoidance. IEEE/ACM Transactions on networking.<br/>
 
 [3] http://www.nsnam.org/
+
+[4] TBD
