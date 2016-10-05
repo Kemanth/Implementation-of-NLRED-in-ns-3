@@ -103,6 +103,11 @@ TypeId RedQueueDisc::GetTypeId (void)
                    BooleanValue (true),
                    MakeBooleanAccessor (&RedQueueDisc::m_isGentle),
                    MakeBooleanChecker ())
+    .AddAttribute ("NLRED",
+                   "True to enable NLRED",
+                   BooleanValue (false),
+                   MakeBooleanAccessor (&RedQueueDisc::m_isNonlinear),
+                   MakeBooleanChecker ())
     .AddAttribute ("ARED",
                    "True to enable ARED",
                    BooleanValue (false),
