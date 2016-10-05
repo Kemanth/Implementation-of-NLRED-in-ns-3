@@ -677,6 +677,14 @@ RedQueueDisc::CalculatePNew (double qAvg, double maxTh, bool isGentle, double vA
        */
       p = 1.0;
     }
+  else if (isNonlinear)
+    { 
+      // p ranges from 0 to 1.5*max_p as
+      // the average queue size ranges from th_min to th_max.
+      p = vA * qAvg + vB;
+      p = p * p;
+      p *= 1.5 * maxP;
+    }
   else
     {
       /*
