@@ -598,7 +598,7 @@ uint32_t
 RedQueueDisc::DropEarly (Ptr<QueueDiscItem> item, uint32_t qSize)
 {
   NS_LOG_FUNCTION (this << item << qSize);
-  m_vProb1 = CalculatePNew (m_qAvg, m_maxTh, m_isGentle, m_vA, m_vB, m_vC, m_vD, m_curMaxP);
+  m_vProb1 = CalculatePNew (m_qAvg, m_maxTh, m_isGentle, m_isNonlinear, m_vA, m_vB, m_vC, m_vD, m_curMaxP);
   m_vProb = ModifyP (m_vProb1, m_count, m_countBytes, m_meanPktSize, m_isWait, item->GetPacketSize ());
 
   // Drop probability is computed, pick random number and act
@@ -656,8 +656,8 @@ RedQueueDisc::DropEarly (Ptr<QueueDiscItem> item, uint32_t qSize)
 
 // Returns a probability using these function parameters for the DropEarly funtion
 double
-RedQueueDisc::CalculatePNew (double qAvg, double maxTh, bool isGentle, double vA,
-                         double vB, double vC, double vD, double maxP)
+RedQueueDisc::CalculatePNew (double qAvg, double maxTh, bool isGentle, bool isNonlinear, 
+                             double vA, double vB, double vC, double vD, double maxP)
 {
   NS_LOG_FUNCTION (this << qAvg << maxTh << isGentle << vA << vB << vC << vD << maxP);
   double p;

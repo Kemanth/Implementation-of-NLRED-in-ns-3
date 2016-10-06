@@ -258,8 +258,8 @@ private:
    * \param maxP max_p
    * \returns Prob. of packet drop before "count"
    */
-  double CalculatePNew (double qAvg, double , bool gentle, double vA,
-                        double vB, double vC, double vD, double maxP);
+  double CalculatePNew (double qAvg, double , bool gentle, bool nonlinear, 
+                        double vA, double vB, double vC, double vD, double maxP);
   /**
    * \brief Returns a probability using these function parameters for the DropEarly function
    * \param p Prob. of packet drop before "count"
