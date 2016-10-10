@@ -677,14 +677,6 @@ RedQueueDisc::CalculatePNew (double qAvg, double maxTh, bool isGentle, double vA
        */
       p = 1.0;
     }
-  else if (m_isNonlinear)
-    { 
-      // p varies from 0 to 1.5 * maxP as
-      // the average queue size varies from th_min to th_max.
-      p = vA * qAvg + vB;
-      p = p * p;
-      p *= 1.5 * maxP;
-    }
   else
     {
       p = vA * qAvg + vB;
@@ -693,8 +685,7 @@ RedQueueDisc::CalculatePNew (double qAvg, double maxTh, bool isGentle, double vA
         {
           p = p * p;
           // maxP is set to 1.5 times of its old value [Ref: http://www.sciencedirect.com/science/article/pii/S1389128606000879]
-          maxP = 1.5 * maxP;
-          p *= maxP;
+          p *= maxP * 1.5;
         }
       else
         {

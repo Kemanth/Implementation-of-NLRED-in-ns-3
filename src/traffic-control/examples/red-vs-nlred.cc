@@ -96,7 +96,6 @@ int main (int argc, char *argv[])
     {
       // Turn on NLRED
       Config::SetDefault ("ns3::RedQueueDisc::NLRED", BooleanValue (true));
-      Config::SetDefault ("ns3::RedQueueDisc::LInterm", DoubleValue (50.0));
     }
 
   // Create the point-to-point link helpers
