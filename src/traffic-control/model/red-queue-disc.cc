@@ -104,7 +104,7 @@ TypeId RedQueueDisc::GetTypeId (void)
                    MakeBooleanAccessor (&RedQueueDisc::m_isGentle),
                    MakeBooleanChecker ())
     .AddAttribute ("NLRED",
-                   "True to enable NLRED",
+                   "True to enable Nonlinear RED",
                    BooleanValue (false),
                    MakeBooleanAccessor (&RedQueueDisc::m_isNonlinear),
                    MakeBooleanChecker ())
@@ -598,7 +598,7 @@ uint32_t
 RedQueueDisc::DropEarly (Ptr<QueueDiscItem> item, uint32_t qSize)
 {
   NS_LOG_FUNCTION (this << item << qSize);
-  m_vProb1 = CalculatePNew (m_qAvg, m_maxTh, m_isGentle, m_isNonlinear, m_vA, m_vB, m_vC, m_vD, m_curMaxP);
+  m_vProb1 = CalculatePNew (m_qAvg, m_maxTh, m_isGentle, m_vA, m_vB, m_vC, m_vD, m_curMaxP);
   m_vProb = ModifyP (m_vProb1, m_count, m_countBytes, m_meanPktSize, m_isWait, item->GetPacketSize ());
 
   // Drop probability is computed, pick random number and act
@@ -656,8 +656,8 @@ RedQueueDisc::DropEarly (Ptr<QueueDiscItem> item, uint32_t qSize)
 
 // Returns a probability using these function parameters for the DropEarly funtion
 double
-RedQueueDisc::CalculatePNew (double qAvg, double maxTh, bool isGentle, bool isNonlinear, 
-                             double vA, double vB, double vC, double vD, double maxP)
+RedQueueDisc::CalculatePNew (double qAvg, double maxTh, bool isGentle, double vA,
+                         double vB, double vC, double vD, double maxP)
 {
   NS_LOG_FUNCTION (this << qAvg << maxTh << isGentle << vA << vB << vC << vD << maxP);
   double p;
@@ -677,10 +677,10 @@ RedQueueDisc::CalculatePNew (double qAvg, double maxTh, bool isGentle, bool isNo
        */
       p = 1.0;
     }
-  else if (isNonlinear)
+  else if (m_isNonlinear)
     { 
-      // p ranges from 0 to 1.5*max_p as
-      // the average queue size ranges from th_min to th_max.
+      // p varies from 0 to 1.5 * maxP as
+      // the average queue size varies from th_min to th_max.
       p = vA * qAvg + vB;
       p = p * p;
       p *= 1.5 * maxP;
@@ -689,7 +689,7 @@ RedQueueDisc::CalculatePNew (double qAvg, double maxTh, bool isGentle, bool isNo
     {
       p = vA * qAvg + vB;
     
-      if (isNonlinear)
+      if (m_isNonlinear)
         {
           p = p * p;
           // maxP is set to 1.5 times of its old value [Ref: http://www.sciencedirect.com/science/article/pii/S1389128606000879]

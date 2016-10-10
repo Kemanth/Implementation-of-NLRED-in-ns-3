@@ -258,8 +258,8 @@ private:
    * \param maxP max_p
    * \returns Prob. of packet drop before "count"
    */
-  double CalculatePNew (double qAvg, double , bool gentle, bool nonlinear, 
-                        double vA, double vB, double vC, double vD, double maxP);
+  double CalculatePNew (double qAvg, double , bool gentle, double vA,
+                        double vB, double vC, double vD, double maxP);
   /**
    * \brief Returns a probability using these function parameters for the DropEarly function
    * \param p Prob. of packet drop before "count"
@@ -281,7 +281,6 @@ private:
   uint32_t m_idlePktSize;   //!< Avg pkt size used during idle times
   bool m_isWait;            //!< True for waiting between dropped packets
   bool m_isGentle;          //!< True to increases dropping prob. slowly when ave queue exceeds maxthresh
-  bool m_isNonlinear;       //!< True to enable Non-Linear RED
   bool m_isARED;            //!< True to enable Adaptive RED
   bool m_isAdaptMaxP;       //!< True to adapt m_curMaxP
   double m_minTh;           //!< Min avg length threshold (bytes)
@@ -296,6 +295,7 @@ private:
   double m_alpha;           //!< Increment parameter for m_curMaxP in ARED
   double m_beta;            //!< Decrement parameter for m_curMaxP in ARED
   Time m_rtt;               //!< Rtt to be considered while automatically setting m_bottom in ARED
+  bool m_isNonlinear;       //!< True to enable Nonlinear RED  
   bool m_isNs1Compat;       //!< Ns-1 compatibility
   DataRate m_linkBandwidth; //!< Link bandwidth
   Time m_linkDelay;         //!< Link delay
