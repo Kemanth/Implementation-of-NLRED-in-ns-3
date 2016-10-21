@@ -34,7 +34,13 @@ weight, MinTh and MaxTh and (ii) adapts maximum drop probability. The model
 in ns-3 contains implementation of both the features, and is a port of Sally
 Floyd's ns-2 ARED model. Note that the user is allowed to choose and explicitly
 configure the simulation by selecting feature (i) or feature (ii), or both.
- 
+
+Non-Linear Random Early Detection (NLRED)
+=========================================
+NLRED is a variant of RED in which we replace the linear packet dropping
+function by a nonlinear quadratic function and the rest of the RED remains 
+unchanged. In this, the packet dropping becomes more gentler for light traffic
+load and more aggressive for heavy traffic load.
 
 References
 ==========
@@ -44,6 +50,9 @@ S.Floyd, K.Fall http://icir.org/floyd/papers/redsims.ps
 
 ARED queue implementation is based on the algorithm provided in:
 S. Floyd et al, http://www.icir.org/floyd/papers/adaptiveRed.pdf
+
+NLRED queue implementation is based on the algorithm provided in:
+Kaiyu Zhou et al, http://www.sciencedirect.com/science/article/pii/S1389128606000879]
 
 Attributes
 ==========
@@ -75,6 +84,10 @@ In addition to RED attributes, ARED queue requires following attributes:
 * Alpha (increment parameter for m_curMaxP)
 * Beta (decrement parameter for m_curMaxP)
 * RTT
+
+In addition to RED attributes, NLRED queue requires only one other attribute:
+
+* NLRED (Boolean attribute. Default: false)
 
 Consult the ns-3 documentation for explanation of these attributes.
 
@@ -119,8 +132,11 @@ ARED queue examples can be found at:
 ``src/traffic-control/examples/adaptive-red-tests.cc`` and 
 ``src/traffic-control/examples/red-vs-ared.cc``
 
+NLRED queue example can be found at:
+``src/traffic-control/examples/red-vs-nlred.cc``
+
 Validation
 **********
 
 The RED model has been validated and the report is currently stored
-at: https://github.com/downloads/talau/ns-3-tcp-red/report-red-ns3.pdf 
+at: https://github.com/downloads/talau/ns-3-tcp-red/report-red-ns3.pdf
