@@ -174,13 +174,13 @@ int main (int argc, char *argv[])
       if (st.unforcedDrop > st.forcedDrop)
         {
           std::cout << "Drops due to prob mark should be less than the drops due to hard mark" << std::endl;
-          exit (-1);
+          exit (1);
         }
 
       if (st.qLimDrop != 0)
         {
           std::cout << "There should be zero drops due to queue full" << std::endl;
-          exit (-1);
+          exit (1);
         }
     }
   else if (queueDiscType == "NLRED")
@@ -188,13 +188,13 @@ int main (int argc, char *argv[])
       if (st.unforcedDrop > st.forcedDrop)
         {
           std::cout << "Drops due to prob mark should be less than the drops due to hard mark" << std::endl;
-          exit (-1);
+          exit (1);
         }
 
       if (st.qLimDrop != 0)
         {
           std::cout << "There should be zero drops due to queue full" << std::endl;
-          exit (-1);
+          exit (1);
         }
     }
 
