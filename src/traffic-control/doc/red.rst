@@ -35,12 +35,11 @@ in ns-3 contains implementation of both the features, and is a port of Sally
 Floyd's ns-2 ARED model. Note that the user is allowed to choose and explicitly
 configure the simulation by selecting feature (i) or feature (ii), or both.
 
-Non-Linear Random Early Detection (NLRED)
-=========================================
-NLRED is a variant of RED in which we replace the linear packet dropping
-function by a nonlinear quadratic function and the rest of the RED remains 
-unchanged. In this, the packet dropping becomes more gentler for light traffic
-load and more aggressive for heavy traffic load.
+Nonlinear Random Early Detection (NLRED)
+========================================
+NLRED is a variant of RED in which the linear packet dropping function of 
+RED is replaced by a nonlinear quadratic function. This approach makes packet
+dropping gentler for light traffic load and aggressive for heavy traffic load.
 
 References
 ==========
@@ -52,7 +51,7 @@ ARED queue implementation is based on the algorithm provided in:
 S. Floyd et al, http://www.icir.org/floyd/papers/adaptiveRed.pdf
 
 NLRED queue implementation is based on the algorithm provided in:
-Kaiyu Zhou et al, http://www.sciencedirect.com/science/article/pii/S1389128606000879]
+Kaiyu Zhou et al, http://www.sciencedirect.com/science/article/pii/S1389128606000879
 
 Attributes
 ==========
@@ -85,7 +84,7 @@ In addition to RED attributes, ARED queue requires following attributes:
 * Beta (decrement parameter for m_curMaxP)
 * RTT
 
-In addition to RED attributes, NLRED queue requires only one other attribute:
+The following attribute should be turned on to simulate NLRED queue disc:
 
 * NLRED (Boolean attribute. Default: false)
 
@@ -122,6 +121,16 @@ To configure (ii); AdaptMaxP must be set to true, as done in
 .. sourcecode:: cpp
 
   Config::SetDefault ("ns3::RedQueueDisc::AdaptMaxP", BooleanValue (true));
+
+Simulating NLRED
+================
+
+To switch on NLRED algorithm, the attribute NLRED must be set to true,
+as shown below:
+
+.. sourcecode:: cpp
+
+  Config::SetDefault ("ns3::RedQueueDisc::NLRED", BooleanValue (true));
 
 Examples
 ========
