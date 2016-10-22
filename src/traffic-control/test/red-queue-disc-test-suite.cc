@@ -302,13 +302,13 @@ RedQueueDiscTestCase::RunRedTest (StringValue mode)
                          "Verify that we can actually set the attribute QueueLimit");
   NS_TEST_EXPECT_MSG_EQ (queue->SetAttributeFailSafe ("QW", DoubleValue (0.020)), true,
                          "Verify that we can actually set the attribute QW");
-  NS_TEST_EXPECT_MSG_EQ (queue->SetAttributeFailSafe ("NLRED", BooleanValue (false)), true,
+  NS_TEST_EXPECT_MSG_EQ (queue->SetAttributeFailSafe ("NLRED", BooleanValue (true)), true,
                          "Verify that we can actually set the attribute NonLinear");
   queue->Initialize ();
   Enqueue (queue, pktSize, 300);
   st = StaticCast<RedQueueDisc> (queue)->GetStats ();
   drop.test8 = st.unforcedDrop + st.forcedDrop + st.qLimDrop;
-  NS_TEST_EXPECT_MSG_EQ (drop.test8, drop.test3, "Test 8 should have drops equal to test 3");
+  NS_TEST_EXPECT_MSG_LT (drop.test8, drop.test6, "Test 8 should have less drops than test 6");
 
 }
 

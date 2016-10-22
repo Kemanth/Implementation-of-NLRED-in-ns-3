@@ -15,8 +15,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * Authors: Phani Kiran <>
- *          Nichit <>
+ * Authors: Phani Kiran S V S <phanikiran.harithas@gmail.com>
+ *          Nichit Bodhak Goel <nichit93@gmail.com>
  *          Mohit P. Tahiliani <tahiliani@nitk.edu.in>
  *
  */
