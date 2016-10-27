@@ -29,6 +29,7 @@
 #include "ns3/log.h"
 #include "ns3/simulator.h"
 
+
 using namespace ns3;
 
 class RedQueueDiscTestItem : public QueueDiscItem {
@@ -304,11 +305,15 @@ RedQueueDiscTestCase::RunRedTest (StringValue mode)
                          "Verify that we can actually set the attribute QW");
   NS_TEST_EXPECT_MSG_EQ (queue->SetAttributeFailSafe ("NLRED", BooleanValue (true)), true,
                          "Verify that we can actually set the attribute NonLinear");
+  NS_TEST_EXPECT_MSG_EQ (queue->SetAttributeFailSafe ("Gentle", BooleanValue (false)), true,
+                         "Verify that we can actually set the attribute NonLinear");
+   
   queue->Initialize ();
   Enqueue (queue, pktSize, 300);
   st = StaticCast<RedQueueDisc> (queue)->GetStats ();
   drop.test8 = st.unforcedDrop + st.forcedDrop + st.qLimDrop;
-  NS_TEST_EXPECT_MSG_LT (drop.test8, drop.test6, "Test 8 should have less drops than test 6");
+  NS_TEST_EXPECT_MSG_GT_OR_EQ (drop.test8, drop.test6, "Test 8 should have more drops than test 3");
+ 
 
 }
 
