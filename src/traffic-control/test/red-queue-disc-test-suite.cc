@@ -305,7 +305,7 @@ RedQueueDiscTestCase::RunRedTest (StringValue mode)
   NS_TEST_EXPECT_MSG_EQ (queue->SetAttributeFailSafe ("NLRED", BooleanValue (true)), true,
                          "Verify that we can actually set the attribute NonLinear");
   NS_TEST_EXPECT_MSG_EQ (queue->SetAttributeFailSafe ("Gentle", BooleanValue (false)), true,
-                         "Verify that we can actually set the attribute NonLinear");
+                         "Verify that we can actually set the attribute Gentle");
   queue->Initialize ();
   Enqueue (queue, pktSize, 300);
   st = StaticCast<RedQueueDisc> (queue)->GetStats ();
