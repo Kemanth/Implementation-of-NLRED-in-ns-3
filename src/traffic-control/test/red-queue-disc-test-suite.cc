@@ -290,7 +290,7 @@ RedQueueDiscTestCase::RunRedTest (StringValue mode)
   NS_TEST_EXPECT_MSG_GT (drop.test7, drop.test3, "Test 7 should have more drops than test 3");
 
   
-  // test 8: enabling Nonlinear param
+  // test 8: enabling NLRED param
   queue = CreateObject<RedQueueDisc> ();
   NS_TEST_EXPECT_MSG_EQ (queue->SetAttributeFailSafe ("Mode", mode), true,
                          "Verify that we can actually set the attribute Mode");
