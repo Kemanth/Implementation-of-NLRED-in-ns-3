@@ -5,7 +5,8 @@ Assignment: #GP1    <br/>
 
 Overview:           <br/>
 
-Non-Linear RED is an Active Queue Management [1] mechanism which is a variant of Random Early Detection (RED) [2]. This repository contains an extention to the RED that is implemented in ns-3 [3]. <br/>
+Nonlinear RED (NLRED) [1] is a variant of Random Early Detection (RED) [2] in which the linear packet dropping function of 
+RED is replaced by a nonlinear quadratic function. This repository provides an implementation of NLRED in ns-3 [3]. <br/>
 
 References:         <br/>
 
