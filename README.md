@@ -1,4 +1,4 @@
-# Extending RED qdisc in ns-3 to support Non-Linear RED (NLRED) algorithm.
+# Implementation of Nonlinear RED (NLRED) algorithm in ns-3.
 Course Code: CS822  <br/>
                     <br/>
 Assignment: #GP1    <br/>
@@ -6,7 +6,7 @@ Assignment: #GP1    <br/>
 Overview:           <br/>
 
 Nonlinear RED (NLRED) [1] is a variant of Random Early Detection (RED) [2] in which the linear packet dropping function of 
-RED is replaced by a nonlinear quadratic function. This repository provides an implementation of NLRED in ns-3 [3]. <br/>
+RED is replaced by a nonlinear quadratic function. This repository provides an implementation of NLRED in ns-3.25 [3]. <br/>
 
 References:         <br/>
 
