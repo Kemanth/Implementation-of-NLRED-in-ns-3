@@ -8,14 +8,12 @@ Overview:           <br/>
 Nonlinear RED (NLRED) [1] is a variant of Random Early Detection (RED) [2] in which the linear packet dropping function of 
 RED is replaced by a nonlinear quadratic function. This repository provides an implementation of NLRED in ns-3.25 [3]. <br/>
 
-Simulating NLRED	<br/>
+Simulating NLRED:	<br/>
 
 To simulate NLRED algorithm, the attribute NLRED must be set to true,
 as shown below:
 
-.. sourcecode:: cpp
-
-  Config::SetDefault ("ns3::RedQueueDisc::NLRED", BooleanValue (true));
+  `Config::SetDefault ("ns3::RedQueueDisc::NLRED", BooleanValue (true));`
 
 References:         <br/>
 
