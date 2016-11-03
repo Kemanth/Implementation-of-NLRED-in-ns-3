@@ -1,4 +1,4 @@
-# Implementation of Nonlinear RED (NLRED) algorithm in ns-3.
+# Implementation of Nonlinear RED (NLRED) algorithm in ns-3
 Course Code: CS822  <br/>
                     <br/>
 Assignment: #GP1    <br/>
@@ -14,5 +14,5 @@ References:         <br/>
 
 [2] Floyd, S., & Jacobson, V. (1993). Random early detection gateways for congestion avoidance. IEEE/ACM Transactions on networking.<br/>
 
-[3] http://www.nsnam.org/
+[3] https://www.nsnam.org/ns-3-25/
 
