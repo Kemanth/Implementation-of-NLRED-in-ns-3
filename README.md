@@ -22,7 +22,7 @@ An example program for NLRED has been provided in
 
 and should be executed as
 
-`./waf --run "red-vs-nlred --queueDiscType=NLRED"
+`./waf --run "red-vs-nlred --queueDiscType=NLRED"`
 
 ### References         <br/>
 
