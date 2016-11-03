@@ -1,6 +1,5 @@
 # Implementation of Nonlinear RED (NLRED) algorithm in ns-3
-## Course Code: CS822  <br/>
-                    <br/>
+## Course Code: CS822  <br/>                  
 ## Assignment: #GP1    <br/>
 
 ### Overview           <br/>
@@ -14,6 +13,16 @@ To simulate NLRED algorithm, the attribute NLRED must be set to true,
 as shown below:
 
   `Config::SetDefault ("ns3::RedQueueDisc::NLRED", BooleanValue (true));`
+
+### NLRED example	<br/>
+
+An example program for NLRED has been provided in
+
+`src/traffic-control/examples/red-vs-nlred.cc`
+
+and should be executed as
+
+`./waf --run "red-vs-nlred --queueDiscType=NLRED"
 
 ### References         <br/>
 
