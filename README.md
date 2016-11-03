@@ -13,6 +13,8 @@ Simulating NLRED	<br/>
 To simulate NLRED algorithm, the attribute NLRED must be set to true,
 as shown below:
 
+.. sourcecode:: cpp
+
   Config::SetDefault ("ns3::RedQueueDisc::NLRED", BooleanValue (true));
 
 References:         <br/>
